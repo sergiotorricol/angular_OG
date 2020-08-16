@@ -6,7 +6,7 @@ import { from, fromEvent } from 'rxjs';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit{
   title = 'curso-angular';
 
   ngOnInit(){
