@@ -12,7 +12,8 @@ export class AppComponent implements OnInit{
   ngOnInit(){
     const array = from([1,2,3,4,5,6]);
     array.subscribe(s => console.log('item:', s))
-    const aux = fromEvent(document, 'mousemove');
+    //const aux = fromEvent(document, 'mousemove');
+    const aux = fromEvent<MouseEvent>(document, 'mousemove');
     aux.subscribe(s => console.log('event: ', s.clientX + ', ' + s.clientY));
   }
 
