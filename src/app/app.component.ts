@@ -16,5 +16,9 @@ export class AppComponent implements OnInit{
     const aux = fromEvent<MouseEvent>(document, 'mousemove');
     aux.subscribe(s => console.log('event: ', s.clientX + ', ' + s.clientY));
   }
+  clickSaveChild(event){
+    console.log('EVENT CHILD: ', event)
+
+  }
 
 }
