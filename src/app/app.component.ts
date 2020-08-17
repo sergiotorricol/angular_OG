@@ -9,6 +9,7 @@ import { from, fromEvent } from 'rxjs';
 export class AppComponent implements OnInit{
   title = 'curso-angular';
   sw=true;
+  persons=['marco','maria','jorge','lupe'];
   ngOnInit(){
     const array = from([1,2,3,4,5,6]);
     array.subscribe(s => console.log('item:', s))

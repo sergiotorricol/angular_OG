@@ -5,3 +5,7 @@
 </div>
 <app-test *ngIf="sw" name="sergio"></app-test>
 <button (click)="sw = false;">Change SW</button>
+
+<div *nrFor="let person of persons; let i =index">
+  <p>{{person}}==={{i}}</p>
+</div>
