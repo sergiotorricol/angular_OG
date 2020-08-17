@@ -2,8 +2,19 @@ import { Component, OnInit, Input, Output, EventEmitter, OnChanges, DoCheck, Aft
 
 @Component({
     selector: 'app-test',
-    templateUrl: './test.component.html',
-    styleUrls: ['./test.component.scss']
+    template: `
+        <p>Componente Test 1</p>
+        <p>Entrada NAME: {{name}}</p>
+        <p>Entrada AGE: {{age}}</p>
+        <p>Entrada DESCRIPTION: {{description}}</p>
+        <button (click)="onClickSave()">Save</button>
+        <div style="border: 1px solid red;">
+        <p>TEST</p>
+        <input type="text" [(ngModel)]="name">
+        <p>VALOR VAR NAME: {{name}}</p>
+        </div>
+    `
+
 })
 export class TestComponent implements OnInit, OnChanges,
 DoCheck, AfterContentInit, AfterContentChecked,
