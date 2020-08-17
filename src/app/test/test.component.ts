@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter, OnChanges, DoCheck, AfterContentInit, AfterContentChecked, AfterViewInit, AfterViewChecked } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, OnChanges, DoCheck, AfterContentInit, AfterContentChecked, AfterViewInit, AfterViewChecked, OnDestroy } from '@angular/core';
 
 @Component({
     selector: 'app-test',
@@ -7,7 +7,7 @@ import { Component, OnInit, Input, Output, EventEmitter, OnChanges, DoCheck, Aft
 })
 export class TestComponent implements OnInit, OnChanges,
 DoCheck, AfterContentInit, AfterContentChecked,
-AfterViewInit, AfterViewChecked{
+AfterViewInit, AfterViewChecked, OnDestroy{
     @Input() name: string;
     @Input() age: number;
     @Input() description: string;
@@ -43,5 +43,8 @@ AfterViewInit, AfterViewChecked{
     }
     ngAfterViewChecked(){
         console.log('AFTER VIEW CHECKED')
+    }
+    ngOnDestroy(){
+        console.log('ON DESTROY')
     }
 }

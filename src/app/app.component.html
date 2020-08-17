@@ -3,3 +3,5 @@
 
   <app-test name="Sergio" age="22" description="test" (clickSave)="clickSaveChild($event)"></app-test>
 </div>
+<app-test *ngIf="sw" name="sergio"></app-test>
+<button (click)="sw = false;">Change SW</button>
