@@ -1,5 +1,40 @@
-<p>Sergio</p>
-<div style="border: 1px solid red;">
+<p>ESTUDIANTES</p>
+<p>TOTAL x  INSCRITOS: </p>
+<p>PRIMARIA</p>
+<p>TOTAL: </p>
+<div *ngFor="let estudiante of estudiantes">
+  <div *ngIf="estudiante.grado==='P'">
+    <div [ngStyle]="{'background':estudiante.edad<=18 ? 'orange' : 'red'}">
+      <estudiante [nombre]="estudiante.nombre | uppercase" [edad]="estudiante.edad" [grado]="'primaria'">
+      </estudiante>
+      <button>Inscribir</button>
+    </div>
+  </div>
+</div>
+<p>SECUNDARIA</p>
+<p>TOTAL: </p>
+<div *ngFor="let estudiante of estudiantes">
+  <div *ngIf="estudiante.grado==='S'">
+    <div [ngStyle]="{'background':estudiante.edad<=18 ? 'orange' : 'red'}">
+      <estudiante [nombre]="estudiante.nombre  | uppercase" [edad]="estudiante.edad" [grado]="'secundaria'">
+      </estudiante>
+      <button>Inscribir</button>
+    </div>
+  </div>
+</div>
+
+
+<!--<div *ngIf="(estudiantes.filter(e=>e.inscrito)).length===0">TODOS ESTAN INSCRITOS</div>-->
+
+
+
+
+
+p
+
+
+
+<!--<div style="border: 1px solid red;">
 
   <app-test name="Sergio" age="22" description="test" (clickSave)="clickSaveChild($event)"></app-test>
 </div>
@@ -46,4 +81,4 @@
     [age]="person.age" [enable]="person.enable">
     </persona>
   </div>
-</div>
+</div>-->

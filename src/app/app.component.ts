@@ -8,7 +8,7 @@ import { from, fromEvent } from 'rxjs';
 })
 export class AppComponent implements OnInit{
   title = 'curso-angular';
-  sw=true;
+  /*sw=true;
   persons=['marco','maria','jorge','lupe'];
   aux=5;
   auxColor ='red';
@@ -40,12 +40,36 @@ export class AppComponent implements OnInit{
       age: 34,
       enable:false
     } 
+  ]*/
+
+  estudiantes=[
+    {nombre:"juan",edad:13,grado:"P"},
+    {nombre:"marco",edad:15,grado:"S"},
+    {nombre:"maria",edad:20,grado:"P"},
+    {nombre:"marta",edad:22,grado:"S"},
+    {nombre:"omar",edad:18,grado:"P"},
+    {nombre:"miriam",edad:16,grado:"S"},
+    {nombre:"roger",edad:18,grado:"P"},
+    {nombre:"julieta",edad:20,grado:"S"},
+    {nombre:"eber",edad:22,grado:"P"},
+    {nombre:"juana",edad:25,grado:"S"}
   ]
 
 
 
+
+
   ngOnInit(){
-    const array = from([1,2,3,4,5,6]);
+    
+
+    //clickSaveChild(event){
+    //  console.log('EVENT CHILD: ', event)
+   // }
+
+
+
+
+    /*const array = from([1,2,3,4,5,6]);
     array.subscribe(s => console.log('item:', s))
     
     //const aux = fromEvent(document, 'mousemove');
@@ -55,7 +79,7 @@ export class AppComponent implements OnInit{
   }
   clickSaveChild(event){
     console.log('EVENT CHILD: ', event)
-
   }
+  */}
 
 }
