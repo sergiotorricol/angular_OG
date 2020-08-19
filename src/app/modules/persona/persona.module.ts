@@ -14,4 +14,6 @@ import { PersonaComponent } from './components/persona/persona.component';
     ]
 })
 
-export class PersonaModule { }
+export class PersonaModule {
+    //prueba
+ }
