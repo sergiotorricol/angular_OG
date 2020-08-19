@@ -16,6 +16,22 @@
   <p *ngSwitchDefault>No es ni 3 ni 2</p>
 </div>
 
-<div [ngStyles]="">
+<button (click)="auxColor='red'">ROJO</button>
+<button (click)="auxColor='yellow'">AMARILLO</button>
+<button (click)="auxColor='green'">VERDE</button>
+<div [ngStyle]="{'border':'1px solid ' + auxColor,'color':auxColor}">
   personas
+</div>
+
+<div [style.color]="auxColor">
+  Jeepeta
+</div>
+
+<button (click)="auxClass=!auxClass">Change Class</button>
+<div [ngClass]="{'test1':auxClass,'test2':!auxClass}">
+  ng class example
+</div>
+
+<div [class.test1]="auxClass">
+  class example
 </div>

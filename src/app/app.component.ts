@@ -11,6 +11,9 @@ export class AppComponent implements OnInit{
   sw=true;
   persons=['marco','maria','jorge','lupe'];
   aux=5;
+  auxColor ='red';
+  auxClass=true;
+
   ngOnInit(){
     const array = from([1,2,3,4,5,6]);
     array.subscribe(s => console.log('item:', s))
