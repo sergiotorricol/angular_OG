@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
     selector: 'estudiante',
@@ -7,7 +7,12 @@ import { Component, OnInit, Input } from '@angular/core';
 export class EstudianteComponent implements OnInit {
     @Input() nombre:string;
     @Input() edad:number;
-    @Input() grado:string;    
+    @Input() grado:string;   
+    @Output() send= new EventEmitter(); 
     constructor(){}
-    ngOnInit(){}
+    ngOnInit(){
+        //inscribir(event){
+          //  console.log('dd')
+        //}
+    }
 }

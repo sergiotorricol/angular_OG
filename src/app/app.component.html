@@ -1,5 +1,5 @@
 <p>ESTUDIANTES</p>
-<p>TOTAL x  INSCRITOS: </p>
+<p>TOTAL INSCRITOS: </p>
 <p>PRIMARIA</p>
 <p>TOTAL: </p>
 <div *ngFor="let estudiante of estudiantes">
@@ -12,7 +12,7 @@
   </div>
 </div>
 <p>SECUNDARIA</p>
-<p>TOTAL: </p>
+<p>TOTAL INSCRITOS: </p>
 <div *ngFor="let estudiante of estudiantes">
   <div *ngIf="estudiante.grado==='S'">
     <div [ngStyle]="{'background':estudiante.edad<=18 ? 'orange' : 'red'}">
@@ -24,13 +24,13 @@
 </div>
 
 
-<!--<div *ngIf="(estudiantes.filter(e=>e.inscrito)).length===0">TODOS ESTAN INSCRITOS</div>-->
+<!--<div *ngIf="(estudiantes.filter(e=>e.edad>18)).length===0">TODOS ESTAN INSCRITOS</div>-->
 
 
 
 
 
-p
+
 
 
 
