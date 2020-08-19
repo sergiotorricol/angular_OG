@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
-    selector: 'app-persona',
+    selector: 'persona',
     templateUrl: './persona.component.html',
     styleUrls: ['./persona.component.css']
 })
