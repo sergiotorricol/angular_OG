@@ -18,6 +18,8 @@ export class AppComponent implements OnInit{
   auxNumber:number=3;
   auxExponent:number=2;
 
+  numbers=[1,2,3,4,5,6,7,8,9,10];
+
   people=[
     {
       name:'hal',
@@ -55,10 +57,22 @@ export class AppComponent implements OnInit{
     
     //const aux = fromEvent<MouseEvent>(document, 'mousemove');
     //aux.subscribe(s => console.log('event: ', s.clientX + ', ' + s.clientY));
+
+  console.log('PURA: ',this.pura(2,2));
+  console.log('IMPURA: ',this.impura(2,2));
+
   }
   clickSaveChild(event){
     console.log('EVENT CHILD: ', event)
 
+  }
+
+  pura(a:number,b:number){
+    return a+b;
+  }
+
+  impura(a:number,b:number){
+    return a+b+Math.random();
   }
 
 }

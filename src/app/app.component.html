@@ -1,6 +1,6 @@
 <p>Sergio Torrico</p>
 
-<div style="border: 1px solid red;">
+<!--<div style="border: 1px solid red;">
 
   <app-test name="Sergio" age="22" description="test" (clickSave)="clickSaveChild($event)"></app-test>
 </div>
@@ -57,10 +57,10 @@
 <p>____________________________________________
   ________________________________________________
   ____________________________________________
-  ________________________________________________</p>
+  ________________________________________________</p>-->
 
 <p>PIPES</p>
-<p>PIPE JSON: {{persons | json}}</p>
+<!--<p>PIPE JSON: {{persons | json}}</p>
 <p>PIPE UPPERCASSE: {{name | uppercase}}</p>
 <p>PIPE LOWERCASSE: {{name | lowercase}}</p>
 <p>PIPE DATE: {{ '08/21/2019' | date: "dd/MM/yy" }}</p>
@@ -68,4 +68,10 @@
 
 VALUE: <input type="text" [(ngModel)]="auxNumber">
 EXPONENT: <input type="text" [(ngModel)]="auxExponent">
-<p>{{auxNumber|expo:auxExponent}}</p>
+<p>{{auxNumber|expo:auxExponent}}</p>-->
+
+
+
+<p>PURE: {{numbers | pure}}</p>
+<p>IMPURE: {{numbers | impure}}</p>
+<button (click)="numbers.push(4)">ADD</button>

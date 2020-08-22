@@ -11,6 +11,8 @@ import{UserModule}from './modules/user/user.module';
 
 import {TestPipe }from './pipes/test.pipe';
 import {ExponentPipe }from './pipes/exponent.pipe';
+import {PurePipe }from './pipes/pure.pipe';
+import {ImpurePipe }from './pipes/impure.pipe';
 
 import { from } from 'rxjs';
 @NgModule({
@@ -18,7 +20,9 @@ import { from } from 'rxjs';
     AppComponent,
     TestComponent,
     TestPipe,
-    ExponentPipe
+    ExponentPipe,
+    PurePipe,
+    ImpurePipe
   ],
   imports: [
     BrowserModule,
