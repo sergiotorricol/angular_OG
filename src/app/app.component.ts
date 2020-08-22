@@ -7,58 +7,9 @@ import { from, fromEvent } from 'rxjs';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit{
-  title = 'curso-angular';
-  sw=true;
-  persons=['marco','maria','jorge','lupe'];
-  aux=5;
-  auxColor ='red';
-  auxClass=true;
-  name='sergio';
+  
 
-  auxNumber:number=3;
-  auxExponent:number=2;
-
-  people=[
-    {
-      name:'hal',
-      lastName:'jordan',
-      age: 28,
-      enable:true
-    },
-    {
-      name:'barry',
-      lastName:'allen',
-      age: 26,
-      enable:true
-    },
-    {
-      name:'bruce',
-      lastName:'wayne',
-      age: 35,
-      enable:false
-    },
-    {
-      name:'clark',
-      lastName:'kent',
-      age: 34,
-      enable:false
-    } 
-  ]
-
-
-
+  
   ngOnInit(){
-    const array = from([1,2,3,4,5,6]);
-    array.subscribe(s => console.log('item:', s))
-    
-    //const aux = fromEvent(document, 'mousemove');
-    
-    //const aux = fromEvent<MouseEvent>(document, 'mousemove');
-    //aux.subscribe(s => console.log('event: ', s.clientX + ', ' + s.clientY));
-  }
-  clickSaveChild(event){
-    console.log('EVENT CHILD: ', event)
-
-  }
-
-}
+  
+}}
