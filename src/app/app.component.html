@@ -1,6 +1,6 @@
 <p>Sergio Torrico</p>
 
-<!--<div style="border: 1px solid red;">
+<div style="border: 1px solid red;">
 
   <app-test name="Sergio" age="22" description="test" (clickSave)="clickSaveChild($event)"></app-test>
 </div>
@@ -47,4 +47,25 @@
     [age]="person.age" [enable]="person.enable">
     </persona>
   </div>
-</div>-->
+</div>
+
+<producto1></producto1>
+<producto2></producto2>
+<producto3></producto3>
+<admin1></admin1>
+
+<p>____________________________________________
+  ________________________________________________
+  ____________________________________________
+  ________________________________________________</p>
+
+<p>PIPES</p>
+<p>PIPE JSON: {{persons | json}}</p>
+<p>PIPE UPPERCASSE: {{name | uppercase}}</p>
+<p>PIPE LOWERCASSE: {{name | lowercase}}</p>
+<p>PIPE DATE: {{ '08/21/2019' | date: "dd/MM/yy" }}</p>
+<p>VAR NAME: {{name | testpipe }}</p>
+
+VALUE: <input type="text" [(ngModel)]="auxNumber">
+EXPONENT: <input type="text" [(ngModel)]="auxExponent">
+<p>{{auxNumber|expo:auxExponent}}</p>

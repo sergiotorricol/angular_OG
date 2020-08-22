@@ -13,7 +13,10 @@ export class AppComponent implements OnInit{
   aux=5;
   auxColor ='red';
   auxClass=true;
+  name='sergio';
 
+  auxNumber:number=3;
+  auxExponent:number=2;
 
   people=[
     {
