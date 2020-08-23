@@ -1,25 +1,27 @@
-import { Component, OnInit, Input, Output, EventEmitter, OnChanges, DoCheck, AfterContentInit, AfterContentChecked, AfterViewInit, AfterViewChecked, OnDestroy } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, OnChanges, DoCheck, AfterContentInit, AfterContentChecked, AfterViewInit, AfterViewChecked, OnDestroy, SimpleChange } from '@angular/core';
 
 @Component({
     selector: 'app-test',
-    template: `
-        <p>Componente Test 1</p>
-        <p>Entrada NAME: {{name}}</p>
-        <p>Entrada AGE: {{age}}</p>
-        <p>Entrada DESCRIPTION: {{description}}</p>
-        <button (click)="onClickSave()">Save</button>
-        <div style="border: 1px solid red;">
-        <p>TEST</p>
-        <input type="text" [(ngModel)]="name">
-        <p>VALOR VAR NAME: {{name}}</p>
-        </div>
-    `
+    templateUrl: './test.component.html'
 
 })
 export class TestComponent implements OnInit, OnChanges,
 DoCheck, AfterContentInit, AfterContentChecked,
 AfterViewInit, AfterViewChecked, OnDestroy{
-    @Input() name: string;
+    
+    intermediaria:string;
+    @Input()
+        get name(){
+            return this.intermediaria;
+        }
+        set name(name:string){
+            this.intermediaria='Holaaa '+name;
+        }
+
+
+    @Input() lastName:string;
+    
+    
     @Input() age: number;
     @Input() description: string;
     @Output() clickSave = new EventEmitter();
@@ -28,7 +30,7 @@ AfterViewInit, AfterViewChecked, OnDestroy{
     }
 
     ngOnInit(){
-        console.log('ON INIT')
+        console.log('ON INIT', this.name);
     }
     onClickSave(){
         this.clickSave.emit({
@@ -37,9 +39,15 @@ AfterViewInit, AfterViewChecked, OnDestroy{
             description: this.description
         });
     }
-    ngOnChanges(){
-        console.log('ON CHANGES')
+
+    ngOnChanges(changes: SimpleChange){
+        if(changes && changes.lastName && changes.lastName.currentValue) {
+            console.log('ON CHANGES', changes.lastName.currentValue);
+            const aux = 'HOLA' + changes.lastName.currentValue;
+            this.lastName = aux;
+         }
     }
+
     ngDoCheck(){
         console.log('DO CHECK')
     }
@@ -57,5 +65,21 @@ AfterViewInit, AfterViewChecked, OnDestroy{
     }
     ngOnDestroy(){
         console.log('ON DESTROY')
+    }
+}
+
+
+
+class persona {
+    name: string
+    age: number
+    constructor(){
+
+    }
+    getName(){
+        return name;
+    }
+    setName(name:string){
+        this.name=name;
     }
 }

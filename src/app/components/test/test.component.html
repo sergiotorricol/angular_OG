@@ -1,5 +1,5 @@
 <p>Componente Test 1</p>
-<p>Entrada NAME: {{name}}</p>
+<!--<p>Entrada NAME: {{name}}</p>
 <p>Entrada AGE: {{age}}</p>
 <p>Entrada DESCRIPTION: {{description}}</p>
 <button (click)="onClickSave()">Save</button>
@@ -7,4 +7,21 @@
     <p>TEST</p>
     <input type="text" [(ngModel)]="name">
     <p>VALOR VAR NAME: {{name}}</p>
+</div>-->
+
+<!-- ESTO IBA EN EL TEMPATE DIERCTAMENTE, SIN PONER LOCALIZADORES, solo entre `` y en vez de templrateUrl solo template
+     <p>Componente Test 1</p>
+        <p>Entrada NAME: {{name}}</p>
+        <p>Entrada AGE: {{age}}</p>
+        <p>Entrada DESCRIPTION: {{description}}</p>
+        <button (click)="onClickSave()">Save</button>
+        <div style="border: 1px solid red;">
+        <p>TEST</p>
+        <input type="text" [(ngModel)]="name">
+        <p>VALOR VAR NAME: {{name}}</p>
+        </div>-->
+
+<div style="border: 1px solid red;">
+    <p>NAME: {{name}}</p>
+    <p>LAST NAME: {{lastName}}</p>
 </div>
