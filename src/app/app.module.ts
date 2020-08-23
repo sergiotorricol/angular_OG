@@ -14,6 +14,8 @@ import {ExponentPipe }from './pipes/exponent.pipe';
 import {PurePipe }from './pipes/pure.pipe';
 import {ImpurePipe }from './pipes/impure.pipe';
 
+import { NgColorDirective } from './directives/ng-color.directive';
+
 import { from } from 'rxjs';
 @NgModule({
   declarations: [
@@ -22,7 +24,8 @@ import { from } from 'rxjs';
     TestPipe,
     ExponentPipe,
     PurePipe,
-    ImpurePipe
+    ImpurePipe,
+    NgColorDirective
   ],
   imports: [
     BrowserModule,
