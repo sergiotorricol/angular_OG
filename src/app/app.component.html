@@ -82,6 +82,10 @@ EXPONENT: <input type="text" [(ngModel)]="auxExponent">
   Sergio
 </div>-->
 
-
+<br>
 <button (click)="name='maria'; lastName='gutierrez'">CHANGE NAME and LAST NAME</button>
 <app-test [name]="name" [lastName]="lastName"></app-test>
+<br>
+<div style="border: 1px solid green;" 
+(appNgFocus)="name='J'">
+  {{name}}</div>

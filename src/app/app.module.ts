@@ -15,6 +15,7 @@ import {PurePipe }from './pipes/pure.pipe';
 import {ImpurePipe }from './pipes/impure.pipe';
 
 import { NgColorDirective } from './directives/ng-color.directive';
+import { NgFocusDirective } from './directives/ng-focus.directive';
 
 import { from } from 'rxjs';
 @NgModule({
@@ -25,7 +26,8 @@ import { from } from 'rxjs';
     ExponentPipe,
     PurePipe,
     ImpurePipe,
-    NgColorDirective
+    NgColorDirective,
+    NgFocusDirective
   ],
   imports: [
     BrowserModule,
