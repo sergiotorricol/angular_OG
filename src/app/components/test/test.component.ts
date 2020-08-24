@@ -5,11 +5,12 @@ import { Component, OnInit, Input, Output, EventEmitter, OnChanges, DoCheck, Aft
     templateUrl: './test.component.html'
 
 })
-export class TestComponent implements OnInit, OnChanges,
-DoCheck, AfterContentInit, AfterContentChecked,
-AfterViewInit, AfterViewChecked, OnDestroy{
+export class TestComponent implements OnInit//, OnChanges,
+//DoCheck, AfterContentInit, AfterContentChecked,
+//AfterViewInit, AfterViewChecked, OnDestroy
+{
     
-    intermediaria:string;
+    /*intermediaria:string;
     @Input()
         get name(){
             return this.intermediaria;
@@ -24,15 +25,15 @@ AfterViewInit, AfterViewChecked, OnDestroy{
     
     @Input() age: number;
     @Input() description: string;
-    @Output() clickSave = new EventEmitter();
+    @Output() clickSave = new EventEmitter();*/
     constructor(){
 
     }
 
     ngOnInit(){
-        console.log('ON INIT', this.name);
+        //console.log('ON INIT', this.name);
     }
-    onClickSave(){
+    /*onClickSave(){
         this.clickSave.emit({
             name: this.name,
             age: this.age,
@@ -65,7 +66,7 @@ AfterViewInit, AfterViewChecked, OnDestroy{
     }
     ngOnDestroy(){
         console.log('ON DESTROY')
-    }
+    }*/
 }
 
 

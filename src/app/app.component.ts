@@ -7,7 +7,7 @@ import { from, fromEvent } from 'rxjs';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit{
-  title = 'curso-angular';
+  /*title = 'curso-angular';
   sw=true;
   persons=['marco','maria','jorge','lupe'];
   aux=5;
@@ -48,18 +48,22 @@ export class AppComponent implements OnInit{
       age: 34,
       enable:false
     } 
-  ]
+  ]*/
 
 
 
   ngOnInit(){
-    const array = from([1,2,3,4,5,6]);
+   
+   
+   
+   
+    /*const array = from([1,2,3,4,5,6]);
     array.subscribe(s => console.log('item:', s))
     
-    //const aux = fromEvent(document, 'mousemove');
+    const aux = fromEvent(document, 'mousemove');
     
-    //const aux = fromEvent<MouseEvent>(document, 'mousemove');
-    //aux.subscribe(s => console.log('event: ', s.clientX + ', ' + s.clientY));
+    const aux = fromEvent<MouseEvent>(document, 'mousemove');
+    aux.subscribe(s => console.log('event: ', s.clientX + ', ' + s.clientY));
 
   console.log('PURA: ',this.pura(2,2));
   console.log('IMPURA: ',this.impura(2,2));
@@ -76,6 +80,6 @@ export class AppComponent implements OnInit{
 
   impura(a:number,b:number){
     return a+b+Math.random();
+  }*/
   }
-
 }

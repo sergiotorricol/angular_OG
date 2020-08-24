@@ -3,6 +3,13 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { TestComponent } from './components/test/test.component';
+import { AboutComponent } from './components/about/about.component';
+import { AdminComponent } from './components/admin/admin.component';
+import { HomeComponent } from './components/home/home.component';
+import { Home1Component } from './components/home1/home1.component';
+import { Home2Component } from './components/home2/home2.component';
+
+
 import { FormsModule } from '@angular/forms';
 import { PersonaModule } from './modules/persona/persona.module';
 import {ProductoModule} from './modules/producto/producto.module';
@@ -17,11 +24,18 @@ import {ImpurePipe }from './pipes/impure.pipe';
 import { NgColorDirective } from './directives/ng-color.directive';
 import { NgFocusDirective } from './directives/ng-focus.directive';
 
+import { AppRouting } from './app.routing';
+
 import { from } from 'rxjs';
 @NgModule({
   declarations: [
     AppComponent,
     TestComponent,
+    AboutComponent,
+    AdminComponent,
+    HomeComponent,
+    Home1Component,
+    Home2Component,
     TestPipe,
     ExponentPipe,
     PurePipe,
@@ -35,7 +49,8 @@ import { from } from 'rxjs';
     PersonaModule,
     ProductoModule,
     AdminModule,
-    UserModule
+    UserModule,
+    AppRouting
   ],
   providers: [],
   bootstrap: [AppComponent]
