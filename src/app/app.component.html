@@ -1,126 +1,26 @@
 <p>ROUTING</p>
+<button type="button" class="btn btn-danger">Danger</button>
+
 <button routerLink="home">HOME</button>
 <button routerLink="about">ABOUT</button>
 <button routerLink="admin">ADMIN</button>
+<button routerLink="user">USER</button>
+
+
+<div class="btn-group btn-group-toggle">
+  <label class="btn-primary" ngbButtonLabel>
+    <input type="checkbox" ngbButton > Left (pre-checked)
+  </label>
+  <label class="btn-primary" ngbButtonLabel>
+    <input type="checkbox" ngbButton > Middle
+  </label>
+  <label class="btn-primary" ngbButtonLabel>
+    <input type="checkbox" ngbButton> Right
+  </label>
+</div>
+
+
 <div style="border: 4px solid red;">
-<router-outlet></router-outlet>
+  <router-outlet>
+  </router-outlet>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!--<div style="border: 1px solid red;">
-
-  <app-test name="Sergio" age="22" description="test" (clickSave)="clickSaveChild($event)"></app-test>
-</div>
-<app-test *ngIf="sw" name="sergio"></app-test>
-<button (click)="sw = false;">Change SW</button>
-
-<div *nrFor="let person of persons; let i =index">
-  <p>{{person}}==={{i}}</p>
-</div>
-
-<div [ngSwitch]="aux">
-  <p *ngSwitchCase="3">el valor es 3</p>
-  <p *ngSwitchCase="2">el valor es 2</p>
-  <p *ngSwitchDefault>No es ni 3 ni 2</p>
-</div>
-
-<button (click)="auxColor='red'">ROJO</button>
-<button (click)="auxColor='yellow'">AMARILLO</button>
-<button (click)="auxColor='green'">VERDE</button>
-<div [ngStyle]="{'border':'1px solid ' + auxColor,'color':auxColor}">
-  personas
-</div>
-
-<div [style.color]="auxColor">
-  Jeepeta
-</div>
-
-<button (click)="auxClass=!auxClass">Change Class</button>
-<div [ngClass]="{'test1':auxClass,'test2':!auxClass}">
-  ng class example
-</div>
-
-<div [class.test1]="auxClass">
-  class example
-</div>
-<p>____________________________________________
-  ________________________________________________
-  ____________________________________________
-  ________________________________________________</p>
-
-<div *ngFor="let person of people">
-  <div [ngStyle]="{'background':person.enable ? 'yellow' : 'red'}">
-    <persona [name]="person.name" [lastName]="person.lastName" 
-    [age]="person.age" [enable]="person.enable">
-    </persona>
-  </div>
-</div>
-
-<producto1></producto1>
-<producto2></producto2>
-<producto3></producto3>
-<admin1></admin1>
-
-<p>____________________________________________
-  ________________________________________________
-  ____________________________________________
-  ________________________________________________</p>-->
-
-<!--<p>PIPES</p>
-<p>PIPE JSON: {{persons | json}}</p>
-<p>PIPE UPPERCASSE: {{name | uppercase}}</p>
-<p>PIPE LOWERCASSE: {{name | lowercase}}</p>
-<p>PIPE DATE: {{ '08/21/2019' | date: "dd/MM/yy" }}</p>
-<p>VAR NAME: {{name | testpipe }}</p>
-
-VALUE: <input type="text" [(ngModel)]="auxNumber">
-EXPONENT: <input type="text" [(ngModel)]="auxExponent">
-<p>{{auxNumber|expo:auxExponent}}</p>
-
-
-
-<p>PURE: {{numbers | pure}}</p>
-<p>IMPURE: {{numbers | impure}}</p>
-<button (click)="numbers.push(4)">ADD</button>-->
-
-
-
-<!--<div [appNgColor]="'green'" [secondColor]="'yellow'">
-  Sergio
-</div>
-
-<br>
-<button (click)="name='maria'; lastName='gutierrez'">CHANGE NAME and LAST NAME</button>
-<app-test [name]="name" [lastName]="lastName"></app-test>
-<br>
-<div style="border: 1px solid green;" 
-(appNgFocus)="name='J'">
-  {{name}}</div>-->
