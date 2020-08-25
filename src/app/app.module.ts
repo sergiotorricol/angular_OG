@@ -51,6 +51,7 @@ import { from } from 'rxjs';
     AdminModule,
     UserModule,
     AppRouting
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
