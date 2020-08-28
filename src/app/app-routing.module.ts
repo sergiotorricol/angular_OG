@@ -8,6 +8,14 @@ import {Home2Component} from './components/home2/home2.component';*/
 
 const routes: Routes = [
   
+  {path: '', redirectTo: 'login', pathMatch: 'full'},
+  {path: 'login', loadChildren: () => import('./login/login.module').then(m => m.LoginModule)},
+  {path: 'pages', loadChildren: () => import('./pagess/pagess.module').then(m => m.PagessModule)},
+  
+];
+
+/*const routes: Routes = [
+  
   {path: '', redirectTo: 'home', pathMatch: 'full'},
   {path: 'home', loadChildren: () => import('./pages/home/home.module').then(m => m.HomeModule)},
   {path: 'admin', loadChildren: () => import('./pages/admin/admin.module').then(m => m.AdminModule)},
@@ -23,8 +31,8 @@ const routes: Routes = [
   },
   {path: 'admin', component: AdminComponent},
   {path: 'about', component: AboutComponent},
-  {path: 'user', loadChildren: () => import('./modules/user/user.module').then(m => m.UserModule)}*/
-];
+  {path: 'user', loadChildren: () => import('./modules/user/user.module').then(m => m.UserModule)} |aqui acababa el comentraio de adentro|
+];*/
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
