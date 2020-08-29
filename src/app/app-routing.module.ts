@@ -10,7 +10,7 @@ const routes: Routes = [
   
   {path: '', redirectTo: 'login', pathMatch: 'full'},
   {path: 'login', loadChildren: () => import('./login/login.module').then(m => m.LoginModule)},
-  {path: 'pages', loadChildren: () => import('./pagess/pagess.module').then(m => m.PagessModule)},
+  {path: 'pagess', loadChildren: () => import('./pagess/pagess.module').then(m => m.PagessModule)},
   
 ];
 
