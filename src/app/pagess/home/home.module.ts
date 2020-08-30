@@ -5,6 +5,9 @@ import { HomeRoutingModule } from './home-routing.module';
 import { HomeComponent } from './home/home.component';
 import {MatCardModule} from '@angular/material/card';
 import {MatButtonModule} from '@angular/material/button';
+import { importExpr } from '@angular/compiler/src/output/output_ast';
+
+import { ProductService } from '../../services/product.service';
 
 @NgModule({
     declarations: [
@@ -15,6 +18,9 @@ import {MatButtonModule} from '@angular/material/button';
         HomeRoutingModule,
         MatCardModule,
         MatButtonModule
+    ],
+    providers: [
+        ProductService
     ]
 })
 export class HomeModule {
