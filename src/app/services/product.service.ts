@@ -1,12 +1,17 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable()
 export class ProductService {
 
-    constructor() { }
+    constructor(private hhtp: HttpClient) { }
 
-    public getProducts(): any[] {
-        return [{
+    public getProducts(): Observable<any>  {
+
+      return this.hhtp.get('https://angular-og.firebaseio.com/products.json');
+
+       /* return [{
             description: '',
             imageUrl: 'https://material.angular.io/assets/img/examples/shiba2.jpg',
             ownerId: '',
@@ -33,7 +38,7 @@ export class ProductService {
             ownerId: '',
             price: '',
             title: ''
-          }];
+          }];*/
     }
 
 }

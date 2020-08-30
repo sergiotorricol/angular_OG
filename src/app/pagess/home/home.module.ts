@@ -8,6 +8,7 @@ import {MatButtonModule} from '@angular/material/button';
 import { importExpr } from '@angular/compiler/src/output/output_ast';
 
 import { ProductService } from '../../services/product.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
     declarations: [
@@ -17,7 +18,8 @@ import { ProductService } from '../../services/product.service';
         CommonModule,
         HomeRoutingModule,
         MatCardModule,
-        MatButtonModule
+        MatButtonModule,
+        HttpClientModule
     ],
     providers: [
         ProductService
