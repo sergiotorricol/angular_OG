@@ -5,11 +5,13 @@ import { Observable } from 'rxjs';
 @Injectable()
 export class ProductService {
 
-    constructor(private hhtp: HttpClient) { }
+    constructor(private http: HttpClient) { }
 
     public getProducts(): Observable<any>  {
 
-      return this.hhtp.get('https://angular-og.firebaseio.com/products.json');
+      return this.http.get('https://angular-og.firebaseio.com/products.json');
+
+      
 
        /* return [{
             description: '',
@@ -39,6 +41,9 @@ export class ProductService {
             price: '',
             title: ''
           }];*/
+    }
+    public addProduct(product: any): Observable<any> {
+      return this.http.post('https://angular-course-bcdc9.firebaseio.com/products.json', product);
     }
 
 }

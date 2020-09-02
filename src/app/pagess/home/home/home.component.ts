@@ -1,12 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ProductService } from 'src/app/services/product.service';
+import {Subscription} from 'rxjs';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnInit, OnDestroy {
 
   products = [
    /* {
@@ -38,16 +39,21 @@ export class HomeComponent implements OnInit {
       title: ''
     }*/
   ];
+  productSubs: Subscription;
   
   constructor(private productService: ProductService) { }
 
   ngOnInit(): void {
 
-   this.productService.getProducts().subscribe(res => {
+    this.productSubs = this.productService.getProducts().subscribe(res => {
      console.log('RESPUESTA: ', res);
      console.log('RESPUESTA: ', Object.entries(res));
      Object.entries(res).map(p => this.products.push(p[1]));
    });
+  }
+  ngOnDestroy(): void {
+    //this.productSubs.unsubscribe();
+    this.productSubs ? this.productSubs.unsubscribe() : '';
   }
 
 }
