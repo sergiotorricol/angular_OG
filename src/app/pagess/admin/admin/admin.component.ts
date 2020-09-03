@@ -19,7 +19,7 @@ export class AdminComponent implements OnInit, OnDestroy {
 
   constructor(private formBuilder: FormBuilder,
     private productService: ProductService) {
-      this.productGetSubs = this.productService.getProducts().subscribe(res => {
+      /*this.productGetSubs = this.productService.getProducts().subscribe(res => {
 
         // [1,2,3,4,5,6];
         // {{key:1 },{key: 2},{key: 1},{key: 1},{key: 1},{key: 1},{key: 1}}
@@ -30,10 +30,12 @@ export class AdminComponent implements OnInit, OnDestroy {
   
         Object.entries(res).map(p => this.products.push(p[1]));
   
-      });
+      });*/
 }
 
   ngOnInit(): void {
+    this.loadProduct();
+
     this.productForm = this.formBuilder.group({
       description: ['description', [Validators.required, Validators.minLength(3)]],
       imageUrl: '',
@@ -42,6 +44,25 @@ export class AdminComponent implements OnInit, OnDestroy {
       title: ''
     });
 
+  }
+
+  loadProduct(): void {
+    this.products = [];
+    this.productGetSubs = this.productService.getProducts().subscribe(res => {
+      Object.entries(res).map((p: any) => this.products.push({id: p[0], ...p[1]}));
+    });
+  }
+
+  onDelete(id: any): void {
+    this.productService.deleteProduct(id).subscribe(
+      res => {
+        console.log('RESPONSE: ', res);
+        this.loadProduct();
+      },
+      err => {
+        console.log('ERROR: ');
+      }
+    );
   }
 
   /*onEnviar() {
