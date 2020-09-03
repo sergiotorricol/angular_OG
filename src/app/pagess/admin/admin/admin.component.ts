@@ -14,6 +14,9 @@ export class AdminComponent implements OnInit, OnDestroy {
   productForm: FormGroup;
   productSubs: Subscription;
   productGetSubs: Subscription;
+  productDeleteSubs: Subscription;
+  productUpdateSubs: Subscription;
+  idEdit: any;
 
   // nameControl = new FormControl();
 
@@ -54,7 +57,7 @@ export class AdminComponent implements OnInit, OnDestroy {
   }
 
   onDelete(id: any): void {
-    this.productService.deleteProduct(id).subscribe(
+    this.productDeleteSubs = this.productService.deleteProduct(id).subscribe(
       res => {
         console.log('RESPONSE: ', res);
         this.loadProduct();
@@ -65,12 +68,29 @@ export class AdminComponent implements OnInit, OnDestroy {
     );
   }
 
+  onEdit(product): void {
+    this.idEdit = product.id;
+    this.productForm.patchValue(product);
+  }
+
+  onUpdateProduct(): void {
+    this.productUpdateSubs = this.productService.updateProduct(this.idEdit, this.productForm.value).subscribe(
+      res => {
+        console.log('RESP UPDATE: ', res);
+        this.loadProduct();
+      },
+      err => {
+        console.log('ERROR UPDATE DE SERVIDOR');
+      }
+    );
+  }
+
   /*onEnviar() {
     console.log('VALOR: ', this.nameConatrol.value);
   }*/
 
   onEnviar2(): void {
-    console.log('FORM GROUP: ', this.productForm.value);
+    //console.log('FORM GROUP: ', this.productForm.value);
     this.productSubs = this.productService.addProduct(this.productForm.value).subscribe(
       res => {
       console.log('RESP: ', res);
@@ -84,6 +104,8 @@ export class AdminComponent implements OnInit, OnDestroy {
     //this.productSubs.unsubscribe();
     this.productSubs ? this.productSubs.unsubscribe() : '';
     this.productGetSubs ? this.productGetSubs.unsubscribe() : '';
+    this.productDeleteSubs ? this.productDeleteSubs.unsubscribe() : '';
+    this.productUpdateSubs ? this.productUpdateSubs.unsubscribe() : '';
   }
 
 }
