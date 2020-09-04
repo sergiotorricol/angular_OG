@@ -18,22 +18,9 @@ export class AdminComponent implements OnInit, OnDestroy {
   productUpdateSubs: Subscription;
   idEdit: any;
 
-  // nameControl = new FormControl();
-
   constructor(private formBuilder: FormBuilder,
     private productService: ProductService) {
-      /*this.productGetSubs = this.productService.getProducts().subscribe(res => {
-
-        // [1,2,3,4,5,6];
-        // {{key:1 },{key: 2},{key: 1},{key: 1},{key: 1},{key: 1},{key: 1}}
-        // Object.entries(res) [ [key, 1], [key, 2] , .......              ];
-  
-        console.log('RESPUESTA: ', res);
-        console.log('RESPUESTA: ', Object.entries(res));
-  
-        Object.entries(res).map(p => this.products.push(p[1]));
-  
-      });*/
+      
 }
 
   ngOnInit(): void {
@@ -85,12 +72,7 @@ export class AdminComponent implements OnInit, OnDestroy {
     );
   }
 
-  /*onEnviar() {
-    console.log('VALOR: ', this.nameConatrol.value);
-  }*/
-
   onEnviar2(): void {
-    //console.log('FORM GROUP: ', this.productForm.value);
     this.productSubs = this.productService.addProduct(this.productForm.value).subscribe(
       res => {
       console.log('RESP: ', res);
@@ -101,7 +83,6 @@ export class AdminComponent implements OnInit, OnDestroy {
     );
   }
   ngOnDestroy(): void {
-    //this.productSubs.unsubscribe();
     this.productSubs ? this.productSubs.unsubscribe() : '';
     this.productGetSubs ? this.productGetSubs.unsubscribe() : '';
     this.productDeleteSubs ? this.productDeleteSubs.unsubscribe() : '';

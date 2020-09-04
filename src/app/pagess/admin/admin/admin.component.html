@@ -1,18 +1,10 @@
-<!--<p>ADMIN</p>-->
-<!--EXAMPLE 1-->
-<!--<input type="text" [formControl]="nameControl">
-<button (click)="onEnviar()">Enviar</button>-->
-
 <mat-drawer-container autosize style="width: 100%; height: 600px;">
 <mat-drawer #drawer style="width: 300px; height: 100%;" mode="side" [position]="'end'">
-
-    <!--<form [formGroup]="productForm" style="display: flex; flex-direction: column;">
-       <input formControlName="description" type="text">-->
 
        <form [formGroup]="productForm" style="display: flex; flex-direction: column; padding: 20px;">
 
         <mat-form-field>
-          <mat-label>Description</mat-label>
+          <mat-label>DescriIIIIption</mat-label>
           <input matInput formControlName="description" type="text">
         </mat-form-field>
 
@@ -27,11 +19,6 @@
                   Name must have 3 characteres min
                 </div>
               </div>
-        
-              <!--<input formControlName="imageUrl" type="text">
-              <input formControlName="ownerId" type="text">
-              <input formControlName="price" type="text">
-              <input formControlName="title" type="text">-->
 
               <mat-form-field>
                 <mat-label>Image Url</mat-label>
@@ -59,7 +46,7 @@
         
           <div class="example-sidenav-content">
             <button type="button" mat-button (click)="drawer.toggle()">
-              Toggle sidenav
+              CREAR
             </button>
           </div>
         
@@ -88,28 +75,5 @@
    
        </div>
      </div>
-
-<!--EXAMPLE 1-->
-<!--<form [formGroup]="productForm" style="display: flex; flex-direction: column;">
-    <input formControlName="description" type="text">
-
-    <div *ngIf="productForm.get('description').invalid &&
-    (productForm.get('description').touched ||
-    productForm.get('description').dirty)"
-class="alert alert-danger">
-<div *ngIf="productForm.get('description').errors.required">
-Name is required
-</div>
-<div *ngIf="productForm.get('description').errors.minlength">
-Name must have 3 characteres min
-</div>
-</div>-->
-
-    <!--<input formControlName="imageUrl" type="text">
-    <input formControlName="ownerId" type="text">
-    <input formControlName="price" type="text">
-    <input formControlName="title" type="text">
-  </form>
-  <button (click)="onEnviar2()">Enviar</button>-->
 
 </mat-drawer-container>

@@ -8,20 +8,19 @@ export class ProductService {
     constructor(private http: HttpClient) { }
 
     public getProducts(): Observable<any>  {
+      return this.http.get('https://studentss-test.firebaseio.com/students.json');
+    }
 
-      return this.http.get('https://angular-og.firebaseio.com/products.json');
-       
-    }
     public addProduct(product: any): Observable<any> {
-      return this.http.post('https://angular-course-bcdc9.firebaseio.com/products.json', product);
+      return this.http.post('https://studentss-test.firebaseio.com/students.json', product);
     }
+
     public deleteProduct(id: any): Observable<any> {
-      return this.http.delete(`https://angular-course-bcdc9.firebaseio.com/products/${id}.json`);
+      return this.http.delete(`https://studentss-test.firebaseio.com/students/${id}.json`);
     }
 
     public updateProduct(id: any, product: any): Observable<any> {
-      return this.http.put(`https://angular-course-bcdc9.firebaseio.com/products/${id}.json`, product);
+      return this.http.put(`https://studentss-test.firebaseio.com/students/${id}.json`, product);
     }
 
-    //prueba
 }
