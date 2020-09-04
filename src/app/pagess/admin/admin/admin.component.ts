@@ -27,11 +27,10 @@ export class AdminComponent implements OnInit, OnDestroy {
     this.loadProduct();
 
     this.productForm = this.formBuilder.group({
-      description: ['description', [Validators.required, Validators.minLength(3)]],
-      imageUrl: '',
-      ownerId: '',
-      price: '',
-      title: ''
+      age: '',
+      grade: '',
+      name: '',
+      urlImage : ''
     });
 
   }
@@ -76,6 +75,7 @@ export class AdminComponent implements OnInit, OnDestroy {
     this.productSubs = this.productService.addProduct(this.productForm.value).subscribe(
       res => {
       console.log('RESP: ', res);
+      this.loadProduct();
     },
     err => {
       console.log('ERROR DE SERVIDOR');
