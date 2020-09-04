@@ -40,14 +40,15 @@
     </button>
   </div>       
   <p>---PRIMARIA---</p>
+  <p> ---TOTAL: {{primariasize}} ---</p>
   <div class="row">
-    <div *ngFor="let product of products" class="col-12 col-sm-12 col-md-6 col-lg-3 col-xl-3" style="padding: 50px; display: flex; justify-content: center;">
-      <mat-card class="example-card" *ngIf="product.grade==='P'">
+    <div *ngFor="let product of primaria" class="col-12 col-sm-12 col-md-6 col-lg-3 col-xl-3" style="padding: 50px; display: flex; justify-content: center;">
+      <mat-card class="example-card">
         <div [ngStyle]="{'background':product.age<=18 ? 'orange' : 'red'}">
           <mat-card-header>
-            <mat-card-title>{{product.name | uppercase}}</mat-card-title>
-            <mat-card-subtitle>{{product.age}}</mat-card-subtitle>
-            <mat-card-subtitle>primaria</mat-card-subtitle>
+            <mat-card-title>NAME: {{product.name | uppercase}}</mat-card-title>
+            <mat-card-subtitle>AGE: {{product.age}}</mat-card-subtitle>
+            <mat-card-subtitle>GRADE: primaria</mat-card-subtitle>
           </mat-card-header>  
           <img mat-card-image [src]="product.urlImage">         
           <mat-card-actions>
@@ -59,14 +60,15 @@
     </div>
   </div>
   <p>---SECUNDARIA---</p>
+  <p>---TOTAL: {{secundariasize}} ---</p>
   <div class="row">
-    <div *ngFor="let product of products" class="col-12 col-sm-12 col-md-6 col-lg-3 col-xl-3" style="padding: 50px; display: flex; justify-content: center;">
-      <mat-card class="example-card" *ngIf="product.grade==='S'">
+    <div *ngFor="let product of secundaria" class="col-12 col-sm-12 col-md-6 col-lg-3 col-xl-3" style="padding: 50px; display: flex; justify-content: center;">
+      <mat-card class="example-card">
         <div [ngStyle]="{'background':product.age<=18 ? 'orange' : 'red'}">
           <mat-card-header>
-            <mat-card-title>{{product.name | uppercase}}</mat-card-title>
-            <mat-card-subtitle>{{product.age}}</mat-card-subtitle>
-            <mat-card-subtitle>secundaria</mat-card-subtitle>
+            <mat-card-title>NAME: {{product.name | uppercase}}</mat-card-title>
+            <mat-card-subtitle>AGE: {{product.age}}</mat-card-subtitle>
+            <mat-card-subtitle>GRADE: secundaria</mat-card-subtitle>
           </mat-card-header>  
           <img mat-card-image [src]="product.urlImage">         
           <mat-card-actions>

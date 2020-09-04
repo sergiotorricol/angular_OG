@@ -18,6 +18,12 @@ export class AdminComponent implements OnInit, OnDestroy {
   productUpdateSubs: Subscription;
   idEdit: any;
 
+primaria=[];
+secundaria=[];
+
+primariasize;
+secundariasize;
+
   constructor(private formBuilder: FormBuilder,
     private productService: ProductService) {
       
@@ -33,13 +39,22 @@ export class AdminComponent implements OnInit, OnDestroy {
       urlImage : ''
     });
 
+    
+
   }
 
   loadProduct(): void {
     this.products = [];
+    this.primaria=[];
+    this.secundaria=[];
     this.productGetSubs = this.productService.getProducts().subscribe(res => {
       Object.entries(res).map((p: any) => this.products.push({id: p[0], ...p[1]}));
+      this.primaria=this.products.filter(e=> e.grade === "P");
+      this.secundaria=this.products.filter(e=> e.grade === "S");
+      this.primariasize=this.primaria.length;
+      this.secundariasize=this.secundaria.length;
     });
+    
   }
 
   onDelete(id: any): void {
