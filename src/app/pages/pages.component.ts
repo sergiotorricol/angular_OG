@@ -1,3 +1,4 @@
+
 import {Component, OnInit} from '@angular/core';
 import {AuthService} from '../shared/services/auth.service';
 
@@ -10,10 +11,11 @@ export class PagesComponent implements OnInit {
   constructor(private authService: AuthService) {
   }
 
-  
-  ngOnInit(): void {
-    public onLogout(): void {
-      this.authService.logout();
+  public ngOnInit(): void {
+  }
+
+  public onLogout(): void {
+    this.authService.logout();
   }
 
 }
