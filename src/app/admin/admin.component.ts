@@ -8,47 +8,33 @@ import {AuthService} from '../shared/services/auth.service';
   templateUrl: './admin.component.html',
   styleUrls: ['./admin.component.scss']
 })
+
 export class AdminComponent implements OnInit, OnDestroy {
-
   products = [];
-
   productForm: FormGroup;
-
   productSubs: Subscription;
   productGetSubs: Subscription;
   productDeleteSubs: Subscription;
   productUpdateSubs: Subscription;
   idEdit: any;
-
   elderly=[];
-young=[];
-
-elderlysize;
-youngsize;
-
-habilitados=[];
-inhabilitados=[];
-habilitadossize;
-inhabilitadossize;
-
-  constructor(private formBuilder: FormBuilder,
-    private authService: AuthService,
-              private productService: ProductService) {
-  }
-
+  young=[];
+  elderlysize;
+  youngsize;
+  habilitados=[];
+  inhabilitados=[];
+  habilitadossize;
+  inhabilitadossize;
+  constructor(private formBuilder: FormBuilder, private authService: AuthService, private productService: ProductService) {}
   ngOnInit(): void {
-
     this.loadProduct();
-
     this.productForm = this.formBuilder.group({
       age: '',
       enable: '',
       name: '',
       urlImage: ''
     });
-
   }
-
   loadProduct(): void {
     this.products = [];
     this.elderly=[];
@@ -67,7 +53,6 @@ inhabilitadossize;
       this.inhabilitadossize=this.inhabilitados.length;
     });
   }
-
   onDelete(id: any): void {
     this.productDeleteSubs = this.productService.deleteProduct(id).subscribe(
       res => {
@@ -79,13 +64,10 @@ inhabilitadossize;
       }
     );
   }
-
   onEdit(product): void {
     this.idEdit = product.id;
     this.productForm.patchValue(product);
   }
-
-  
   onEnviar2(): void {
     this.productSubs = this.productService.addProduct({
       ...this.productForm.value,
@@ -99,9 +81,7 @@ inhabilitadossize;
         console.log('ERROR DE SERVIDOR');
       }
     );
-
   }
-
   public onLogout(): void {
     this.authService.logout();
   }
@@ -128,5 +108,4 @@ inhabilitadossize;
     this.productDeleteSubs ? this.productDeleteSubs.unsubscribe() : '';
     this.productUpdateSubs ? this.productUpdateSubs.unsubscribe() : '';
   }
-
 }

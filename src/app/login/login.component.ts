@@ -8,20 +8,14 @@ import {AuthService} from '../shared/services/auth.service';
 })
 
 export class LoginComponent implements OnInit {
-
-  constructor(private router: Router,
-              private authService: AuthService) {
-  }
-
+  constructor(private router: Router, private authService: AuthService) {}
   ngOnInit(): void {
     if (this.authService.verifyLogged()) {
       this.router.navigate(['pages']);
     }
   }
-
   onLogin(form: any): void {
     console.log('FORM: ', form.value);
-
     this.authService.login({
       email: form.value.email,
       password: form.value.password,
@@ -36,5 +30,4 @@ export class LoginComponent implements OnInit {
       }
     );
   }
-
 }

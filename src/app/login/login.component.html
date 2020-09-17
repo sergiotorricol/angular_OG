@@ -4,17 +4,10 @@
   </mat-card-header>
   <mat-card-content>
     <form #form="ngForm" style="display: flex; flex-direction: column;">
-
       <mat-form-field>
         <mat-label>E-mail</mat-label>
-        <input matInput
-               type="text"
-               name="email"
-               ngModel
-               #emailUI="ngModel"
-               required>
-        <div *ngIf="emailUI.invalid && (emailUI.touched || emailUI.dirty)"
-             class="alert alert-danger">
+        <input matInput type="text" name="email" ngModel #emailUI="ngModel" required>
+        <div *ngIf="emailUI.invalid && (emailUI.touched || emailUI.dirty)" class="alert alert-danger">
           <div *ngIf="emailUI.errors.required">
             Name is required
           </div>
@@ -22,20 +15,13 @@
       </mat-form-field>
       <mat-form-field>
         <mat-label>Password</mat-label>
-        <input matInput
-               type="password"
-               name="password"
-               ngModel
-               #passwordUI="ngModel"
-               required>
-        <div *ngIf="passwordUI.invalid && (passwordUI.touched || passwordUI.dirty)"
-             class="alert alert-danger">
+        <input matInput type="password" name="password" ngModel #passwordUI="ngModel" required>
+        <div *ngIf="passwordUI.invalid && (passwordUI.touched || passwordUI.dirty)" class="alert alert-danger">
           <div *ngIf="passwordUI.errors.required">
             Name is required
           </div>
         </div>
       </mat-form-field>
-
     </form>
   </mat-card-content>
   <mat-card-actions>

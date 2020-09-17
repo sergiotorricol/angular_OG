@@ -8,7 +8,6 @@ import {AuthInterceptor} from './shared/interceptors/auth.interceptor';
 import {AuthGuard} from './shared/guards/auth.guard';
 import {AuthService} from './shared/services/auth.service';
 
-
 const routes: Routes = [
   {path: '', redirectTo: 'login', pathMatch: 'full'},
   {path: 'login', loadChildren: () => import('./login/login.module').then(m => m.LoginModule)},
@@ -22,13 +21,12 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     AppComponent
-    
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     BrowserAnimationsModule,
-        RouterModule.forRoot(routes)        
+    RouterModule.forRoot(routes)        
   ],
   providers: [
     AuthService,
@@ -42,5 +40,4 @@ const routes: Routes = [
   bootstrap: [AppComponent]
 })
 
-export class AppModule {
-}
+export class AppModule {}

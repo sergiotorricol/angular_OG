@@ -3,8 +3,8 @@ import { Pipe, PipeTransform } from '@angular/core';
 @Pipe({
     name: 'enablepipe'
 })
+
 export class EnablePipe implements PipeTransform {
-    
     transform(value: any, args?: any): any {
         if(value==="true"){
             return "YES";
@@ -14,5 +14,4 @@ export class EnablePipe implements PipeTransform {
             return "null"
           }
     }
-
 }
