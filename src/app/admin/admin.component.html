@@ -37,7 +37,7 @@
     </mat-form-field>
     <div *ngIf="productForm.get('enable').invalid && (productForm.get('enable').touched || productForm.get('enable').dirty)" class="alert alert-danger">
       <div *ngIf="productForm.get('enable').errors.required">
-        Grade is required.
+        Enable is required.
       </div>        
     </div>
     <mat-form-field>
@@ -45,8 +45,12 @@
       <input matInput formControlName="urlImage" type="text">
     </mat-form-field>                
   </form>
-  <!--<button (click)="onEdit(product)">Update</button>-->
+  <button (click)="onEnviar2()">Create</button>
+  <button (click)="onUpdateProduct()">Update</button>
   </mat-drawer> 
+
+
+
 
 <p>ELDERLY</p>
 <div class="row">

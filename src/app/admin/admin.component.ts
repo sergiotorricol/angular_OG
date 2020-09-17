@@ -85,12 +85,32 @@ inhabilitadossize;
     this.productForm.patchValue(product);
   }
 
+  
+  onEnviar2(): void {
+    this.productSubs = this.productService.addProduct({
+      ...this.productForm.value,
+      ownerId: this.authService.getUserId()
+    }).subscribe(
+      res => {
+        console.log('RESP: ', res);
+        this.loadProduct();
+      },
+      err => {
+        console.log('ERROR DE SERVIDOR');
+      }
+    );
+
+  }
+
+  public onLogout(): void {
+    this.authService.logout();
+  }
   onUpdateProduct(): void {
     this.productUpdateSubs = this.productService.updateProduct(
       this.idEdit,
       {
-        ...this.productForm.value//,
-        //ownerId: this.authService.getUserId()
+        ...this.productForm.value,
+        ownerId: this.authService.getUserId()
       }
     ).subscribe(
       res => {
@@ -102,25 +122,6 @@ inhabilitadossize;
       }
     );
   }
-
-  onEnviar2(): void {
-    this.productSubs = this.productService.addProduct({
-      ...this.productForm.value,
-      ownerId: this.authService.getUserId()
-    }).subscribe(
-      res => {
-        console.log('RESP: ', res);
-      },
-      err => {
-        console.log('ERROR DE SERVIDOR');
-      }
-    );
-
-  }
-  public onLogout(): void {
-    this.authService.logout();
-  }
-
   ngOnDestroy(): void {
     this.productSubs ? this.productSubs.unsubscribe() : '';
     this.productGetSubs ? this.productGetSubs.unsubscribe() : '';

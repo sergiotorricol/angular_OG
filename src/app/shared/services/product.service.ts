@@ -16,7 +16,7 @@ export class ProductService {
   }
 
   public addProduct(product: any): Observable<any> {
-    return this.http.get(`${this.url}/persons.json?auth=${localStorage.getItem('token')}`, product);
+    return this.http.post(`${this.url}/persons.json?auth=${localStorage.getItem('token')}`, product);
   }
 
   public deleteProduct(id: any): Observable<any> {
@@ -24,7 +24,7 @@ export class ProductService {
   }
 
   public updateProduct(id: any, product: any): Observable<any> {
-    return this.http.delete(`${this.url}/persons/${id}.json?auth=${localStorage.getItem('token')}`, product);
+    return this.http.put(`${this.url}/persons/${id}.json?auth=${localStorage.getItem('token')}`, product);
   }
 
 }

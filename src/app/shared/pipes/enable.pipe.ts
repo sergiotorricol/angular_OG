@@ -6,9 +6,9 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class EnablePipe implements PipeTransform {
     
     transform(value: any, args?: any): any {
-        if(value===true){
+        if(value==="true"){
             return "YES";
-          }else if(value===false){
+          }else if(value==="false"){
           return "NO";
           }else{
             return "null"
