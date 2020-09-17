@@ -14,7 +14,7 @@ const routes: Routes = [
   {path: 'login', loadChildren: () => import('./login/login.module').then(m => m.LoginModule)},
   {
     path: 'pages',
-    loadChildren: () => import('./pages/pages.module').then(m => m.PagesModule),
+    loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule),
     canActivate: [AuthGuard]
   }
 ];
@@ -22,14 +22,13 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     AppComponent
+    
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    RouterModule.forRoot(routes),
-
-    
+        RouterModule.forRoot(routes)        
   ],
   providers: [
     AuthService,

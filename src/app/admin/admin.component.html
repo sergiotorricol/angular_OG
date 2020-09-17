@@ -1,76 +1,92 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-success">
+  <a class="navbar-brand" href="#">ELECCIONES</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+  </button>
+  <button type="button" mat-button-danger (click)="drawer.toggle()">
+    ADD
+  </button>
+  <div style="border: 5px outset red">
+    <p>Enable: {{habilitadossize}}; Disabled: {{inhabilitadossize}}</p>
+  </div>
+  <button (click)="onLogout()">LOGOUT</button>
+</nav>
 <mat-drawer-container autosize style="width: 100%; height: 600px;">
+<mat-drawer #drawer style="width: 300px; height: 100%;" mode="side" [position]="'end'">
 
-  <mat-drawer #drawer style="width: 300px; height: 100%;" mode="side" [position]="'end'">
-
-    <form [formGroup]="productForm" style="display: flex; flex-direction: column; padding: 20px;">
-
-      <mat-form-field>
-        <mat-label>Description</mat-label>
-        <input matInput formControlName="description" type="text">
-      </mat-form-field>
-
-      <div *ngIf="productForm.get('description').invalid &&
-              (productForm.get('description').touched ||
-              productForm.get('description').dirty)"
-           class="alert alert-danger">
-        <div *ngIf="productForm.get('description').errors.required">
-          Name is required
-        </div>
-        <div *ngIf="productForm.get('description').errors.minlength">
-          Name must have 3 characteres min
-        </div>
+  <form [formGroup]="productForm" style="display: flex; flex-direction: column; padding: 20px;">
+    <mat-form-field>
+      <mat-label>NAME</mat-label>
+      <input matInput formControlName="name" type="text" required minlength="3" required #name>
+    </mat-form-field>
+    <div *ngIf="productForm.get('name').invalid && (productForm.get('name').touched || productForm.get('name').dirty)" class="alert alert-danger">
+      <div *ngIf="productForm.get('name').errors.required">
+        Name is required.
       </div>
-
-      <mat-form-field>
-        <mat-label>Image Url</mat-label>
-        <input matInput formControlName="imageUrl" type="text">
-      </mat-form-field>
-      <mat-form-field>
-        <mat-label>Price</mat-label>
-        <input matInput formControlName="price" type="text">
-      </mat-form-field>
-      <mat-form-field>
-        <mat-label>Title</mat-label>
-        <input matInput formControlName="title" type="text">
-      </mat-form-field>
-
-    </form>
-    <button (click)="onEnviar2()">Create</button>
-    <button (click)="onUpdateProduct()">Update</button>
-
-  </mat-drawer>
-
-  <div class="example-sidenav-content">
-    <button type="button" mat-button (click)="drawer.toggle()">
-      Toggle sidenav
-    </button>
-  </div>
-
-  <div class="row">
-
-    <div *ngFor="let product of products"
-         class="col-12 col-sm-12 col-md-6 col-lg-3 col-xl-3"
-         style="padding: 50px; display: flex; justify-content: center;">
-
-      <mat-card class="example-card">
-        <mat-card-header>
-          <mat-card-title>{{product.title}}</mat-card-title>
-          <mat-card-subtitle>{{product.price}} Bs.</mat-card-subtitle>
-        </mat-card-header>
-        <img mat-card-image [src]="product.imageUrl" alt="Photo of a Shiba Inu">
-        <mat-card-content>
-          <p>
-            {{product.description}}
-          </p>
-        </mat-card-content>
-        <mat-card-actions>
-          <button mat-button (click)="onEdit(product); drawer.toggle()">Edit</button>
-          <button mat-button (click)="onDelete(product.id)">Delete</button>
-        </mat-card-actions>
-      </mat-card>
-
+      <div *ngIf="productForm.get('name').errors.minlength">
+        Name must have 3 characters.
+      </div>
     </div>
+    <mat-form-field>
+      <mat-label>AGE</mat-label>
+      <input matInput formControlName="age" type="text">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>ENABLE</mat-label>
+      <input matInput formControlName="enable" type="text" required>
+    </mat-form-field>
+    <div *ngIf="productForm.get('enable').invalid && (productForm.get('enable').touched || productForm.get('enable').dirty)" class="alert alert-danger">
+      <div *ngIf="productForm.get('enable').errors.required">
+        Grade is required.
+      </div>        
+    </div>
+    <mat-form-field>
+      <mat-label>URL IMAGE</mat-label>
+      <input matInput formControlName="urlImage" type="text">
+    </mat-form-field>                
+  </form>
+  <!--<button (click)="onEdit(product)">Update</button>-->
+  </mat-drawer> 
 
+<p>ELDERLY</p>
+<div class="row">
+  <div *ngFor="let product of elderly"
+       class="col-12 col-sm-12 col-md-6 col-lg-3 col-xl-3"
+       style="padding: 50px; display: flex; justify-content: center;">
+    <mat-card class="example-card">
+      <div [ngStyle]="{'background':product.enable===true ? 'orange' : 'red'}">
+      <mat-card-header>
+        <img mat-card-image [src]="product.urlImage">
+        <mat-card-title>Name: {{product.name | uppercase}}</mat-card-title>
+        <mat-card-subtitle>Age: {{product.age}}</mat-card-subtitle>
+        <mat-card-subtitle>Enable: {{product.enable | enablepipe}}</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-actions>
+        <button mat-button (click)="onEdit(product); drawer.toggle()">Edit</button>
+        <button mat-button (click)="onDelete(product.id)">Delete</button>
+      </mat-card-actions>
+    </div>
+    </mat-card>
   </div>
-
-</mat-drawer-container>
+</div>
+<p>YOUNG</p>
+<div class="row">
+  <div *ngFor="let product of young"
+       class="col-12 col-sm-12 col-md-6 col-lg-3 col-xl-3"
+       style="padding: 50px; display: flex; justify-content: center;">
+    <mat-card class="example-card">
+      <div [ngStyle]="{'background':product.enable===true ? 'orange' : 'red'}">
+      <mat-card-header>
+        <img mat-card-image [src]="product.urlImage">
+        <mat-card-title>Name: {{product.name | uppercase}}</mat-card-title>
+        <mat-card-subtitle>Age: {{product.age}}</mat-card-subtitle>
+        <mat-card-subtitle>Enable: {{product.enable | enablepipe}}</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-actions>
+        <button mat-button (click)="onEdit(product); drawer.toggle()">Edit</button>
+        <button mat-button (click)="onDelete(product.id)">Delete</button>
+      </mat-card-actions>
+    </div>
+    </mat-card>
+  </div>
+</div>

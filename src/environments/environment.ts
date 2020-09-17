@@ -5,11 +5,11 @@
 export const environment = {
   production: false,
   app: {
-    apiBaseUrl: 'https://angular-og.firebaseapp.com'
+    apiBaseUrl: 'https://electionss-test.firebaseio.com'
   },
   auth: {
     apiBaseUrl: 'https://identitytoolkit.googleapis.com',
-    key: 'AIzaSyDNebvpHqLmwxNKA_3gDLW27-fXwWL9kYk'
+    key: 'AIzaSyB2DtM8UENleqh05l60ElaxFJZPYQAVAmc'
   }
 };
 

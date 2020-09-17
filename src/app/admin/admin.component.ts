@@ -20,7 +20,16 @@ export class AdminComponent implements OnInit, OnDestroy {
   productUpdateSubs: Subscription;
   idEdit: any;
 
-  // nameControl = new FormControl();
+  elderly=[];
+young=[];
+
+elderlysize;
+youngsize;
+
+habilitados=[];
+inhabilitados=[];
+habilitadossize;
+inhabilitadossize;
 
   constructor(private formBuilder: FormBuilder,
     private authService: AuthService,
@@ -32,20 +41,30 @@ export class AdminComponent implements OnInit, OnDestroy {
     this.loadProduct();
 
     this.productForm = this.formBuilder.group({
-      description: ['description', [Validators.required, Validators.minLength(3)]],
-      imageUrl: '',
-      ownerId: '',
-      price: '',
-      title: ''
+      age: '',
+      enable: '',
+      name: '',
+      urlImage: ''
     });
 
   }
 
   loadProduct(): void {
     this.products = [];
-    const userId = this.authService.getUserId();
-    this.productGetSubs = this.productService.getProductsById(userId).subscribe(res => {
+    this.elderly=[];
+    this.young=[];
+    this.habilitados=[];
+    this.inhabilitados=[];
+    this.productGetSubs = this.productService.getProducts().subscribe(res => {
       Object.entries(res).map((p: any) => this.products.push({id: p[0], ...p[1]}));
+      this.elderly=this.products.filter(e=> e.age >= 65);
+      this.young=this.products.filter(e=> e.age < 65);
+      this.elderlysize=this.elderly.length;
+      this.youngsize=this.young.length;
+      this.habilitados=this.products.filter(e=>e.enable===true);
+      this.inhabilitados=this.products.filter(e=>e.enable===false);
+      this.habilitadossize=this.habilitados.length;
+      this.inhabilitadossize=this.inhabilitados.length;
     });
   }
 
@@ -70,8 +89,8 @@ export class AdminComponent implements OnInit, OnDestroy {
     this.productUpdateSubs = this.productService.updateProduct(
       this.idEdit,
       {
-        ...this.productForm.value,
-        ownerId: this.authService.getUserId()
+        ...this.productForm.value//,
+        //ownerId: this.authService.getUserId()
       }
     ).subscribe(
       res => {
@@ -83,10 +102,6 @@ export class AdminComponent implements OnInit, OnDestroy {
       }
     );
   }
-
-  /*onEnviar() {
-    console.log('VALOR: ', this.nameConatrol.value);
-  }*/
 
   onEnviar2(): void {
     this.productSubs = this.productService.addProduct({
@@ -101,6 +116,9 @@ export class AdminComponent implements OnInit, OnDestroy {
       }
     );
 
+  }
+  public onLogout(): void {
+    this.authService.logout();
   }
 
   ngOnDestroy(): void {
