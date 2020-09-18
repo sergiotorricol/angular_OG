@@ -1,7 +1,7 @@
 export const environment = {
   production: true,
   app: {
-    apiBaseUrl: 'https://angular-og.firebaseapp.com'
+    apiBaseUrl: 'https://angular-og.firebaseio.com'
   },
   auth: {
     apiBaseUrl: 'https://identitytoolkit.googleapis.com',
